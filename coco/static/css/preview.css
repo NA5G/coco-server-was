@@ -23,6 +23,18 @@
     margin-bottom:5px;
 }
 
+.overlay-title {
+    color: #fff;
+    text-decoration: none;
+}
+
+.overlay-title:hover {
+    text-decoration: underline;
+}
+
+.overlay-content a {
+}
+
 .immediate-price:hover span, .current-price:hover span {display:none}
 .current-price:hover:before {content:"입찰"}
 .immediate-price:hover:before {content:"즉시구매"}

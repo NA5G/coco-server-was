@@ -25,14 +25,16 @@
 		<img src="/static/{{ post.photos.all.0.image_file }}" alt="">
 	    </a>
 	    <div class="overlay-content text-center">
-		<h3 class="overlay-title">{{ post.title }}</h3>
+		<a href="/posts/{{ post.id }}">
+		    <h3 class="overlay-title">{{ post.title }}</h3>
+		</a>
 		<div class="btn-group">
-		<a class="immediate-price btn btn-warning">
-		    <span>{{ post.auction.immediate_price }}원</span>
-		</a>
-		<a class="current-price btn btn-info">
-		    <span>{{ post.auction.current_price }}원</span>
-		</a>
+		    <a class="immediate-price btn btn-warning">
+			<span>{{ post.auction.immediate_price }}원</span>
+		    </a>
+		    <a class="current-price btn btn-info">
+			<span>{{ post.auction.current_price }}원</span>
+		    </a>
 		</div>
 	    </div>
 	</div>
