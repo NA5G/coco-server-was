@@ -13,3 +13,6 @@ def post(request):
 	# write about make post
 	
 	return HttpResponse("hello post")
+
+def write(request):
+	pass
