@@ -3,34 +3,30 @@
 {% block title %}가입하기{% endblock %}
 
 {% block content %}
-<div class="main_form">
-	<form action="{% url 'sign_up' %}" method="post">
+<form class="form-group" action="{% url 'sign_up' %}" method="post">
 
-	    {% csrf_token %}
-	    {% for field in form %}
-    		<div class="field-wrapper">
-       			{{ field }}
-    		</div>
-		{% endfor %}
-		
-		{% if form.errors %}
-			<div class="alarm_message">
-    		{% for field in form %}
-        		{% for error in field.errors %}
-        		        {{ error|escape }}
-        		        <br />
-		        {% endfor %}
-    		{% endfor %}
-    		{% for error in form.non_field_errors %}
-            		{{ error|escape }}
-            		<br />
-		    {% endfor %}
-		    </div>
-		{% endif %}
-	
-	    <button id="signup_forms_submit" class="forms_submit_button">
-		<span>가입</span>
-	    </button>
-	</form>
-</div>
+    {% csrf_token %}
+    {% for field in form %}
+    {{ field }}
+    {% endfor %}
+    
+    {% if form.errors %}
+    <div class="alarm_message">
+    	{% for field in form %}
+        {% for error in field.errors %}
+        {{ error|escape }}
+        <br />
+	{% endfor %}
+    	{% endfor %}
+    	{% for error in form.non_field_errors %}
+        {{ error|escape }}
+        <br />
+	{% endfor %}
+    </div>
+    {% endif %}
+    
+    <button id="signup_forms_submit" class="forms_submit_button">
+	<span>가입</span>
+    </button>
+</form>
 {% endblock %}

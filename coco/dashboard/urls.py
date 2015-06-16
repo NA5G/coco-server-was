@@ -5,6 +5,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index),
-    url(r'^tags/(?P<tag_name>(.)+)/$', views.tagged_posts),
+    url(r'^search/tags/(?P<tag_name>(.)+)/$', views.tagged_posts, name='tagged_post'),
+    url(r'^search/users/(?P<username>(.)+)/$', views.users_posts, name='users_post'),
 ]
-

@@ -2,7 +2,7 @@
     <div class="thumbnail">
 	<div class="header">
     	    <div class="post_title">
-		<h4><a href="#">{{ post.user.username }}</a></h4>
+		<h4><a href="{% url 'users_post' username=post.user.username %}">{{ post.user.username }}</a></h4>
 	    </div>
 	    <div >
 		<h4 class="auction_countdown"></h4>
@@ -25,11 +25,11 @@
 		<img src="/static/{{ post.photos.all.0.image_file }}" alt="">
 	    </a>
 	    <div class="overlay-content text-center">
-		<a href="/posts/{{ post.id }}">
+		<a href="{% url 'single_post' post_id=post.id %}">
 		    <h3 class="overlay-title">{{ post.title }}</h3>
 		</a>
 		<div class="btn-group">
-		    <a class="immediate-price btn btn-warning">
+		    <a href="{% url 'complete_deal' post_id=post.id %}" class="immediate-price btn btn-warning">
 			<span>{{ post.auction.immediate_price }}원</span>
 		    </a>
 		    <a class="current-price btn btn-info">
@@ -44,7 +44,7 @@
 		<li>
 		    {{ post.description }}
 		    {% for tag in post.tags.all %}
-		    <a href="/dashboard/tags/{{ tag }}">#{{ tag }}</a>
+		    <a href="{% url 'tagged_post' tag_name=tag %}">#{{ tag }}</a>
 		    {% endfor %}
 		</li>
 	    </ul>
