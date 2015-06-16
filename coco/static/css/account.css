@@ -6,49 +6,32 @@ body {
     background-color: #444;
 }
 
-.main_form {
+.form-group {
 	width : 20%;
 	margin: auto;
 	padding-top:20%;
 }
 
-.main_form p label {
-	display: none;
-}
-
-.main_form p {
-	margin:0;
+.form-group .form-control {
+    height: auto;
+    padding: 10px;
 }
 
 #id_email {
-	margin: 0px;
-	padding: 0px;
-	border-bottom:0px;
+	margin-bottom: -1px;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
-	height: 45px;
-	text-indent:3.8%;
 }
 
 #id_username {
-	margin: 0px;
-	padding: 0px;
-	border-top:0px;
-	border-bottom:0px;
 	border-radius: 0px;
 	border-radius: 0px;
-	height: 45px;
-	text-indent:3.8%;
+	margin-bottom: -1px;
 }
 
 #id_password {
-	margin: 0px;
-	padding: 0px;
-	border-top:0px;
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
-	height: 45px;
-	text-indent:3.8%;
 }
 
 
