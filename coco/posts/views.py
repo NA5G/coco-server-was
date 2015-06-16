@@ -3,16 +3,22 @@ from django.shortcuts import render_to_response
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from models import Post, Auction
 
-def post_list(request):
-	# write about make post list
+@login_required
+def single_post(request, post_id=None):
+    # TODO
+    return HttpResponse(Post.objects.get(id=post_id).is_active)
 
-	return HttpResponse("hello post list")
+@login_required
+def complete_deal(request, post_id=None):
+    # TODO
+    auction = Auction.objects.get(post__id=post_id)
+    auction.complete()
+    return HttpResponse([auction.post.id, auction.post.is_active])
 
-def post(request):
-	# write about make post
-	
-	return HttpResponse("hello post")
-
+@login_required
 def write(request):
-	pass
+    # TODO
+    return HttpResponse('TODO')

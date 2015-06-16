@@ -17,9 +17,30 @@ class Auction(models.Model):
     current_price = models.PositiveIntegerField(default=0, blank=False)
     transaction_place = models.CharField(max_length=100, null=False)
     expire_date = models.DateTimeField(default=default_expire_date)
+    is_active = models.BooleanField(default=True)
+    is_completed = models.BooleanField(default=False)
 
     def remain_time(self):
         self.expire_date
+
+    def complete(self):
+        post = self.post
+        post.is_active = False
+        post.save()
+
+        # TODO: new deal object
+        # bidding: immediately price
+        # dealer: posts user
+        # buyer: current user
+        # auction: self
+
+        self.is_active = False
+        self.is_completed = True
+        self.save()
+
+    def is_active(self):
+        # TODO: compare expire date with current date instead of is_active
+        return self.is_active
 
 class Deal(models.Model):
 
