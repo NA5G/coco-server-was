@@ -1,3 +1,10 @@
 body {
     padding-top: 70px;
 }
+
+.post_title {
+    float:left;
+}
+.auction_countdown {
+    float:right;
+}

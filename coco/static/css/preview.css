@@ -1,20 +1,28 @@
 .thumbnail a {
-	color:#0D3C5F;
-	font-size: 15px;
-	text-decoration: none;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.thumbnail .auction_countdown {
+    font-size: 15px;
 }
 
 .thumbnail .header {
-	padding-left:10px;
-	margin-top: -7px;
+    padding-left:10px;
+    padding-right:10px;
+    margin-top: -7px;
 }
 
 .thumbnail {
-	padding-left:0px;
-	padding-right:0px;
-	padding-bottom:0px;
+    padding-left:0px;
+    padding-right:0px;
+    padding-bottom:0px;
 }
 
 .caption li {
-	margin-bottom:5px;
+    margin-bottom:5px;
 }
+
+.immediate-price:hover span, .current-price:hover span {display:none}
+.current-price:hover:before {content:"입찰"}
+.immediate-price:hover:before {content:"즉시구매"}

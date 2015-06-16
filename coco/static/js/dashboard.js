@@ -11,5 +11,11 @@ $(document).ready( function() {
   // layout Isotope after each image loads
   $grid.imagesLoaded().progress( function() {
     $grid.masonry();
-  });  
+  });
 });
+
+function highlightLast30(periods) {
+  if ($.countdown.periodsToSeconds(periods) === 30 * 60) { 
+    $(this).addClass('highlight'); 
+  }
+}
