@@ -10,11 +10,11 @@ def default_expire_date():
 class Auction(models.Model):
 
     product_condition = models.CharField(max_length=100, blank=True)
-    original_price = models.PositiveSmallIntegerField(default=0, blank=False)
-    immediate_price = models.PositiveSmallIntegerField(default=0, blank=False)
-    starting_price = models.PositiveSmallIntegerField(default=0, blank=False)
+    original_price = models.PositiveIntegerField(default=0, blank=False)
+    immediate_price = models.PositiveIntegerField(default=0, blank=False)
+    starting_price = models.PositiveIntegerField(default=0, blank=False)
     # TODO: how do i save value from starting_price?
-    current_price = models.PositiveSmallIntegerField(default=0, blank=False)
+    current_price = models.PositiveIntegerField(default=0, blank=False)
     transaction_place = models.CharField(max_length=100, null=False)
     expire_date = models.DateTimeField(default=default_expire_date)
 
@@ -26,7 +26,7 @@ class Deal(models.Model):
     auction = models.ForeignKey(Auction, related_name='deals', related_query_name='deal')
     dealer = models.OneToOneField(User, related_name='dealer', related_query_name='delaer')
     buyer = models.OneToOneField(User, related_name='buyer', related_query_name='buyer')
-    bidding = models.PositiveSmallIntegerField(default=0, blank=False)
+    bidding = models.PositiveIntegerField(default=0, blank=False)
 
     def __unicode__(self):
         return self.auction

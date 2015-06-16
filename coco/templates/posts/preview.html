@@ -1,25 +1,53 @@
 <div class="grid-item">
     <div class="thumbnail">
-    <div class="header">
-    	<h4><a href="#">{{ post.user.username }}</a></h4>
-    </div>
-	<img src="/static/{{ post.photos.all.0.image_file }}" alt="">
-	<div class="caption">
-		<ul class="list-unstyled">
-		<li><strong> {{ post.title }} </strong></li>
-	    <li>경매 종료까지 {{ post.auction.expire_date | timeuntil }} </li>
-	    <li>즉시구매가 {{ post.auction.immediate_price }}원</li>
-	    <li>현재경매가 {{ post.auction.current_price }}원</li>
-		
-	    <li>{{ post.description }}
+	<div class="header">
+    	    <div class="post_title">
+		<h4><a href="#">{{ post.user.username }}</a></h4>
+	    </div>
+	    <div >
+		<h4 class="auction_countdown"></h4>
+		<script>
+		    var expire_date = new Date('{{ post.auction.expire_date.isoformat }}')
+		    $('.auction_countdown').countdown({
+		    until: expire_date, 
+		    onTick: highlightLast30,
+		    layout: '{dn}{dl} {hn}{hl} {mn}{ml} {sn}{sl}',
+		    format: 'dhms'
+		    });
+		</script>
 
+	    </div>
+	</div>
+
+	<!-- <a href="/posts/{{ post.id }}" class="panel">-->
+	<div class="overlay-item">
+	    <a href="#" class="overlay-media">
+		<img src="/static/{{ post.photos.all.0.image_file }}" alt="">
+	    </a>
+	    <div class="overlay-content text-center">
+		<a href="/posts/{{ post.id }}">
+		    <h3 class="overlay-title">{{ post.title }}</h3>
+		</a>
+		<div class="btn-group">
+		    <a class="immediate-price btn btn-warning">
+			<span>{{ post.auction.immediate_price }}원</span>
+		    </a>
+		    <a class="current-price btn btn-info">
+			<span>{{ post.auction.current_price }}원</span>
+		    </a>
+		</div>
+	    </div>
+	</div>
+
+	<div class="caption">
+	    <ul class="list-unstyled">
+		<li>
+		    {{ post.description }}
 		    {% for tag in post.tags.all %}
-		    <!-- dummy url for tag search-->
 		    <a href="/dashboard/tags/{{ tag }}">#{{ tag }}</a>
-            {% endfor %}
-	    </li>
+		    {% endfor %}
+		</li>
 	    </ul>
-	    
 	</div>
     </div>
 </div>

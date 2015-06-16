@@ -84,3 +84,78 @@ body {
 .tags .tag {
     display:inline;
 }
+
+/* Begin overlay item*/
+.overlay-item {
+    width:100%;
+    position: relative;
+    overflow: hidden;
+
+    /* Only the -webkit- prefix is required these days */
+    -webkit-transform: translateZ();
+            transform: translateZ(0);
+}
+
+.overlay-item::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+    transition: background .35s ease-out;
+}
+
+.overlay-item:hover::before {
+    background: rgba(0, 0, 0, .5);
+}
+
+.overlay-media {
+    display: block;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.overlay-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    color: white;
+
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+
+    transition: -webkit-transform .35s ease-out;
+    transition:         transform .35s ease-out;
+}
+
+.overlay-item:hover .overlay-content {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+
+.overlay-title {
+    -webkit-transform: translateY( -webkit-calc(-100% - 10px) );
+            transform: translateY( calc(-100% - 10px) );
+
+    transition: -webkit-transform .35s ease-out;
+    transition:         transform .35s ease-out;
+}
+
+.overlay-item:hover .overlay-title {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+
+.overlay-content h3 {
+    margin: 0;
+    padding: 0 0 .5em;
+}
+
+/* End overlay item */
+
