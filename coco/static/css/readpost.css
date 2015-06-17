@@ -1,0 +1,27 @@
+#detil_left_box{
+/*background-color: red;*/
+/*height: 600px;*/
+}
+#detail_right_box{
+/*background-color: #F6F6F6;*/
+}
+#desc_box{
+    /*background-color: #FFFFFF;*/
+    width: 555px;
+/*margin-left: 20px;*/
+/*height: 360px*/
+}
+#comment_box{
+    width: 555px;
+/*background-color: black;*/
+}
+#product_img{
+    width: 100%;
+}
+#detail_page{
+    background-color: #E3E3E3;
+}
+
+.hash_tag{
+    color: #3399FF;
+}

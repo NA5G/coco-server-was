@@ -13,7 +13,8 @@ from models import Post, Auction
 @login_required
 def single_post(request, post_id=None):
     # TODO
-    return HttpResponse(Post.objects.get(id=post_id).is_active)
+    post = Post.objects.get(id=post_id)
+    return render(request, 'posts/index.html', {'post': post})
 
 @login_required
 def complete_deal(request, post_id=None):

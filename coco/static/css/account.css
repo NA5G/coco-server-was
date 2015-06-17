@@ -2,6 +2,7 @@
 body {
     background: url("../img/background.png") no-repeat center center fixed;
     color: white;
+    padding-top:0px;
     background-size: cover;
     background-color: #444;
 }
