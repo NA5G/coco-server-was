@@ -2,10 +2,9 @@ body {
     padding-top: 70px;
 }
 
-.create-post {
-	margin:auto;
-	width : 70%;
-	
+.form-control {
+    margin:auto;
+    width : 70%;
 }
 
 #post-input-box {

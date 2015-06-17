@@ -44,7 +44,7 @@
 		<li>
 		    {{ post.description }}
 		    {% for tag in post.tags.all %}
-		    <a href="{% url 'tagged_post' tag_name=tag %}">#{{ tag }}</a>
+		    <a href="{% url 'tagged_post' tag_name=tag.name %}">#{{ tag }}</a>
 		    {% endfor %}
 		</li>
 	    </ul>

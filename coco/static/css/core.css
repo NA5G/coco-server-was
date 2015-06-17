@@ -1,3 +1,6 @@
+body {
+    padding-top: 70px;
+}
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

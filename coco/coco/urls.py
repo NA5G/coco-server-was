@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static

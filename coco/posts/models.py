@@ -10,12 +10,12 @@ def default_expire_date():
 class Auction(models.Model):
 
     product_condition = models.CharField(max_length=100, blank=True)
-    original_price = models.PositiveIntegerField(default=0, blank=False)
-    immediate_price = models.PositiveIntegerField(default=0, blank=False)
+    original_price = models.PositiveIntegerField(default=0, blank=True)
+    immediate_price = models.PositiveIntegerField(default=0, blank=True)
     starting_price = models.PositiveIntegerField(default=0, blank=False)
     # TODO: how do i save value from starting_price?
     current_price = models.PositiveIntegerField(default=0, blank=False)
-    transaction_place = models.CharField(max_length=100, null=False)
+    transaction_place = models.CharField(max_length=100, blank=False)
     expire_date = models.DateTimeField(default=default_expire_date)
     is_active = models.BooleanField(default=True)
     is_completed = models.BooleanField(default=False)
@@ -58,7 +58,7 @@ class Tag(models.Model):
     class Meta:
         ordering = ['name']
 
-    name = models.CharField(max_length=20)
+    name = models.TextField(unique=True)
 
     def __unicode__(self):
         return self.name
@@ -67,7 +67,7 @@ class Tag(models.Model):
 class Post(models.Model):
 
     class Meta:
-        ordering = ['created_at']
+        ordering = ['-created_at']
 
     title = models.CharField(max_length=50, blank=False)
     description = models.TextField(blank=False)
@@ -80,7 +80,6 @@ class Post(models.Model):
 
     def __unicode__(self):
         return self.title
-
 
 class Photo(models.Model):
 
