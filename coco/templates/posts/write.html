@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}상품등록{% endblock %}
+
+{% block header %}{% include 'nav.html' %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form class="form-group" action="{% url 'write_post' %}" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+	{% for field in form %}
+	{{ field }}
+	{% endfor %}
+
+	{% if form.errors %}
+	<div class="alarm_message">
+	    {% for field in form %}
+	    {% for error in field.errors %}
+	    {{ error|escape }}
+	    <br />
+	    {% endfor %}
+	    {% endfor %}
+
+	    {% for error in form.non_field_errors %}
+	    {{ error|escape }}
+	    <br />
+	    {% endfor %}
+	</div>
+	{% endif %}
+
+	<button id="write_forms_submit" class="forms_submit_button">
+	    <span>상품등록</span>
+	</button>
+    </form>
+</div>
+{% endblock %}
